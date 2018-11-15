@@ -1,0 +1,8 @@
+prefix=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/devel
+
+Name: test_slam
+Description: Description of test_slam
+Version: 0.0.0
+Cflags: -I/home/fengyu/catkin_ws/src/slam/test_slam/include
+Libs: -L/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/devel/lib -lcsm
+Requires: roscpp std_msgs

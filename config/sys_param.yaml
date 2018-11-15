@@ -1,0 +1,12 @@
+
+odom_frame_id        : "odom"
+#base_laser_link
+laser_frame_id       : "base_laser_link"
+base_frame_id        : "base_link"
+global_frame_id      : "odom"
+
+#scan
+laser_topic_name     : "scan"
+map_topic_name       : "map"
+odom_topic_name      : "odom"
+pub_map_topic_name   : "map"
