@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fengyu/catkin_ws/src/slam/test_slam/src/common.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/common.cpp.o"
+  "/home/fengyu/catkin_ws/src/slam/test_slam/src/laser_data_process.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o"
   "/home/fengyu/catkin_ws/src/slam/test_slam/src/main.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/main.cpp.o"
+  "/home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_ceres.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o"
   "/home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_custom.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o"
   "/home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_g2o.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o"
   "/home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_interface.cpp" "/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o"
@@ -27,6 +29,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/local/include/eigen3"
   "/usr/include/suitesparse"
+  "/usr/local/include"
   "/opt/ros/kinetic/include/csm"
   )
 

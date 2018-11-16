@@ -11,8 +11,8 @@ int main(int argc,char** argv)
     ros::init(argc, argv, "test_slam_node");
     ros::start();
 
-
-    TestSlam slam;
+    tf::TransformListener tf_buffer(ros::Duration(10));
+    TestSlam slam(&tf_buffer);
 
     ros::spin();
 

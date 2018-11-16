@@ -2,10 +2,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_slam_node.dir/src/main.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/test_slam_node.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o"
+  "CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/common.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o"
   "CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o"
+  "CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o"
   "devel/lib/test_slam/test_slam_node.pdb"
   "devel/lib/test_slam/test_slam_node"
 )

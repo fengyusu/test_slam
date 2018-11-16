@@ -11,6 +11,6 @@ ADD_LIBRARY(g2o_slam2d_library SHARED
   types_tutorial_slam2d.h types_tutorial_slam2d.cpp
   simulator.h simulator.cpp
   g2o_tutorial_slam2d_api.h
-)
+        )
 
 TARGET_LINK_LIBRARIES(g2o_slam2d_library g2o_core g2o_csparse_extension)

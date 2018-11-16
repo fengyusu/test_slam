@@ -129,9 +129,33 @@ CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o.provides: CMakeFiles/test_s
 CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o.provides.build: CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o
 
 
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o: ../src/laser_data_process.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/laser_data_process.cpp
+
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyu/catkin_ws/src/slam/test_slam/src/laser_data_process.cpp > CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.i
+
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyu/catkin_ws/src/slam/test_slam/src/laser_data_process.cpp -o CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.s
+
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.requires:
+
+.PHONY : CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.requires
+
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.provides: CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.provides.build
+.PHONY : CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.provides
+
+CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.provides.build: CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o
+
+
 CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
 CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o: ../src/pose_graph_interface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_interface.cpp
 
 CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o.provides.build: CMa
 
 CMakeFiles/test_slam_node.dir/src/common.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
 CMakeFiles/test_slam_node.dir/src/common.cpp.o: ../src/common.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test_slam_node.dir/src/common.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test_slam_node.dir/src/common.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/common.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/common.cpp
 
 CMakeFiles/test_slam_node.dir/src/common.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/test_slam_node.dir/src/common.cpp.o.provides.build: CMakeFiles/test_s
 
 CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
 CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o: ../src/pose_graph_custom.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_custom.cpp
 
 CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o.provides.build: CMakeF
 
 CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
 CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o: ../src/pose_graph_g2o.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_g2o.cpp
 
 CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.i: cmake_force
@@ -225,15 +249,41 @@ CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o.provides: CMakeFiles/test
 CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o.provides.build: CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o
 
 
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o: CMakeFiles/test_slam_node.dir/flags.make
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o: ../src/pose_graph_ceres.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o -c /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_ceres.cpp
+
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_ceres.cpp > CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.i
+
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fengyu/catkin_ws/src/slam/test_slam/src/pose_graph_ceres.cpp -o CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.s
+
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.requires:
+
+.PHONY : CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.requires
+
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.provides: CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.provides.build
+.PHONY : CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.provides
+
+CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.provides.build: CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o
+
+
 # Object files for target test_slam_node
 test_slam_node_OBJECTS = \
 "CMakeFiles/test_slam_node.dir/src/main.cpp.o" \
 "CMakeFiles/test_slam_node.dir/src/test_slam_node.cpp.o" \
 "CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o" \
+"CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o" \
 "CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o" \
 "CMakeFiles/test_slam_node.dir/src/common.cpp.o" \
 "CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o" \
-"CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o"
+"CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o" \
+"CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o"
 
 # External object files for target test_slam_node
 test_slam_node_EXTERNAL_OBJECTS =
@@ -241,10 +291,12 @@ test_slam_node_EXTERNAL_OBJECTS =
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/main.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/test_slam_node.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o
+devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/common.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o
+devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/build.make
 devel/lib/test_slam/test_slam_node: /opt/ros/kinetic/lib/libtf.so
 devel/lib/test_slam/test_slam_node: /opt/ros/kinetic/lib/libtf2_ros.so
@@ -272,9 +324,38 @@ devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
 devel/lib/test_slam/test_slam_node: /opt/ros/kinetic/lib/libcsm.so
 devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcxsparse.so
+devel/lib/test_slam/test_slam_node: /usr/local/lib/libceres.a
 devel/lib/test_slam/test_slam_node: devel/lib/libg2o_slam2d_library.so
+devel/lib/test_slam/test_slam_node: /usr/local/lib/libglog.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libgflags.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libspqr.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libtbb.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libtbbmalloc.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcholmod.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libccolamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcolamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/liblapack.so
+devel/lib/test_slam/test_slam_node: /usr/lib/libf77blas.so
+devel/lib/test_slam/test_slam_node: /usr/lib/libatlas.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/librt.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libspqr.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libtbb.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libtbbmalloc.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcholmod.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libccolamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libcolamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libamd.so
+devel/lib/test_slam/test_slam_node: /usr/lib/liblapack.so
+devel/lib/test_slam/test_slam_node: /usr/lib/libf77blas.so
+devel/lib/test_slam/test_slam_node: /usr/lib/libatlas.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
+devel/lib/test_slam/test_slam_node: /usr/lib/x86_64-linux-gnu/librt.so
 devel/lib/test_slam/test_slam_node: CMakeFiles/test_slam_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable devel/lib/test_slam/test_slam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable devel/lib/test_slam/test_slam_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_slam_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -285,10 +366,12 @@ CMakeFiles/test_slam_node.dir/build: devel/lib/test_slam/test_slam_node
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/main.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/test_slam_node.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/scan_matcher.cpp.o.requires
+CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/pose_graph_interface.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/common.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/pose_graph_custom.cpp.o.requires
 CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/pose_graph_g2o.cpp.o.requires
+CMakeFiles/test_slam_node.dir/requires: CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o.requires
 
 .PHONY : CMakeFiles/test_slam_node.dir/requires
 

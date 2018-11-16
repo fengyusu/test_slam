@@ -987,6 +987,33 @@ src/common.cpp.s:
 	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/common.cpp.s
 .PHONY : src/common.cpp.s
 
+src/laser_data_process.o: src/laser_data_process.cpp.o
+
+.PHONY : src/laser_data_process.o
+
+# target to build an object file
+src/laser_data_process.cpp.o:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.o
+.PHONY : src/laser_data_process.cpp.o
+
+src/laser_data_process.i: src/laser_data_process.cpp.i
+
+.PHONY : src/laser_data_process.i
+
+# target to preprocess a source file
+src/laser_data_process.cpp.i:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.i
+.PHONY : src/laser_data_process.cpp.i
+
+src/laser_data_process.s: src/laser_data_process.cpp.s
+
+.PHONY : src/laser_data_process.s
+
+# target to generate assembly for a file
+src/laser_data_process.cpp.s:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/laser_data_process.cpp.s
+.PHONY : src/laser_data_process.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -1013,6 +1040,33 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/pose_graph_ceres.o: src/pose_graph_ceres.cpp.o
+
+.PHONY : src/pose_graph_ceres.o
+
+# target to build an object file
+src/pose_graph_ceres.cpp.o:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.o
+.PHONY : src/pose_graph_ceres.cpp.o
+
+src/pose_graph_ceres.i: src/pose_graph_ceres.cpp.i
+
+.PHONY : src/pose_graph_ceres.i
+
+# target to preprocess a source file
+src/pose_graph_ceres.cpp.i:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.i
+.PHONY : src/pose_graph_ceres.cpp.i
+
+src/pose_graph_ceres.s: src/pose_graph_ceres.cpp.s
+
+.PHONY : src/pose_graph_ceres.s
+
+# target to generate assembly for a file
+src/pose_graph_ceres.cpp.s:
+	$(MAKE) -f CMakeFiles/test_slam_node.dir/build.make CMakeFiles/test_slam_node.dir/src/pose_graph_ceres.cpp.s
+.PHONY : src/pose_graph_ceres.cpp.s
 
 src/pose_graph_custom.o: src/pose_graph_custom.cpp.o
 
@@ -1226,9 +1280,15 @@ help:
 	@echo "... src/common.o"
 	@echo "... src/common.i"
 	@echo "... src/common.s"
+	@echo "... src/laser_data_process.o"
+	@echo "... src/laser_data_process.i"
+	@echo "... src/laser_data_process.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/pose_graph_ceres.o"
+	@echo "... src/pose_graph_ceres.i"
+	@echo "... src/pose_graph_ceres.s"
 	@echo "... src/pose_graph_custom.o"
 	@echo "... src/pose_graph_custom.i"
 	@echo "... src/pose_graph_custom.s"

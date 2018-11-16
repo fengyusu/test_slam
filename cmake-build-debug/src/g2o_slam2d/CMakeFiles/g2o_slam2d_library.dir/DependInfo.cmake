@@ -27,6 +27,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/local/include/eigen3"
   "/usr/include/suitesparse"
+  "/usr/local/include"
   "/opt/ros/kinetic/include/csm"
   )
 

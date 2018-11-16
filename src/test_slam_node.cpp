@@ -11,9 +11,10 @@
 
 
 //构造函数
-TestSlam::TestSlam()
+TestSlam::TestSlam(tf::TransformListener *tf)
 {
     ros::NodeHandle private_nh_("~");
+    tf_ = tf;
 
     param_.GetParam(&nh_);
 
@@ -24,6 +25,8 @@ TestSlam::TestSlam()
     info_matrix << 500.5, 0.0, 0.0,
                    0.0, 500.5, 0.0,
                    0.0, 0.0, 500.05;
+
+    laser_data_process_ = std::make_shared<LaserDataProcess>(&nh_,tf_,&param_);
 
     current_time_ = ros::Time::now();
 
@@ -38,7 +41,7 @@ TestSlam::TestSlam()
 
     //进行里程计和激光雷达数据的同步
     scan_filter_sub_ = new message_filters::Subscriber<sensor_msgs::LaserScan>(nh_, param_.laser_topic_name, 10);
-    scan_filter_ = new tf::MessageFilter<sensor_msgs::LaserScan>(*scan_filter_sub_, tf_, param_.odom_frame_id, 10);
+    scan_filter_ = new tf::MessageFilter<sensor_msgs::LaserScan>(*scan_filter_sub_, *tf_, param_.odom_frame_id, 10);
     scan_filter_->registerCallback(boost::bind(&TestSlam::scanCallBack, this, _1));
 
     std::cout <<"Test_slam init,Wait for Data!!!!!!!"<<std::endl;
@@ -77,7 +80,7 @@ bool TestSlam::getTfPose(const std::string& target_frame_id,
     tf::Stamped<tf::Transform> odom_pose;
     try
     {
-        tf_.transformPose(target_frame_id, ident, odom_pose);
+        tf_->transformPose(target_frame_id, ident, odom_pose);
     }
 
 
@@ -128,6 +131,8 @@ void TestSlam::scanCallBack(const sensor_msgs::LaserScan::ConstPtr &laserScanMsg
 
     sensor_msgs::LaserScan scan = *laserScanMsg;
 
+    laser_data_process_->ScanDataCalibrate(scan);
+
     if(!getTfPose(param_.odom_frame_id, param_.base_frame_id, odom_base_pose, scan.header.stamp)){
         d_odom = Eigen::Vector3d::Zero();
     }
@@ -176,7 +181,7 @@ void TestSlam::scanCallBack(const sensor_msgs::LaserScan::ConstPtr &laserScanMsg
     if(vertex_counter_ == 768) {
         pose_graph_.PoseGraphOptimization(0, pose_graph_.GetVertex().size());
     }else if(!(vertex_counter_%10) && vertex_counter_ >= 30){
-//        pose_graph_.PoseGraphOptimization(vertex_counter_-20, 20);
+        pose_graph_.PoseGraphOptimization(vertex_counter_-20, 20);
     }
 
     {

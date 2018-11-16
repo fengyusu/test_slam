@@ -13,6 +13,10 @@
 -- Using Python nosetests: /usr/bin/nosetests-2.7
 -- catkin 0.7.14
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- Found required Ceres dependency: Eigen version 3.3.4 in /usr/local/include/eigen3
+-- Found required Ceres dependency: glog
+-- Found required Ceres dependency: gflags
+-- Found Ceres version: 1.12.0 installed in: /usr/local with components: [LAPACK, SuiteSparse, SparseLinearAlgebraLibrary, SchurSpecializations, OpenMP]
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/fengyu/catkin_ws/src/slam/test_slam/cmake-build-debug
