@@ -43,7 +43,7 @@ include
 )
 
 add_subdirectory(src/g2o_slam2d)
-
+add_subdirectory(src/slam)
 
 add_executable(test_slam_node
         src/main.cpp
@@ -67,4 +67,9 @@ add_dependencies(test_slam_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXP
    g2o_core g2o_stuff g2o_types_sba g2o_csparse_extension
    g2o_slam2d_library
  )
+
+add_executable(robot_teleopt src/robot_teleopt.cpp)
+target_link_libraries(robot_teleopt ${catkin_LIBRARIES})
+
+
 
