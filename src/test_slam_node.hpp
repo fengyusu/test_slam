@@ -37,6 +37,7 @@ public:
     //进行时间同步
     message_filters::Subscriber<sensor_msgs::LaserScan>* scan_filter_sub_;
     tf::MessageFilter<sensor_msgs::LaserScan>* scan_filter_;
+    ros::Subscriber scan_sub_;
 
 
     void scanCallBack(const sensor_msgs::LaserScan::ConstPtr& laserScanMsg);
@@ -49,7 +50,8 @@ public:
     void pubPathMsg( Eigen::Vector3d& pose,nav_msgs::Path &path,ros::Publisher &path_pub_);
 
 
-    void publishTf(ros::Time time_stamp);
+    void PublishTfMapToOdom(ros::Time time_stamp);
+    void PublishTfMapToLaser(ros::Time time_stamp);
     Eigen::Vector3d  calcuDeltaOdom(Eigen::Vector3d odom_pose);
 
     void MapPublishLoop(float map_pub_period);
@@ -82,6 +84,7 @@ public:
     ros::Publisher map_metadata_publisher_;
     nav_msgs::GetMap::Response map_;
     bool first_map_;
+    int map_update_index_;
 
 
     Eigen::Vector3d best_pose_ = Eigen::Vector3d::Zero();
@@ -90,10 +93,10 @@ private:
     ParamConfig param_;
 
     std::shared_ptr<LaserDataProcess> laser_data_process_;
-    ScanMatcher scan_matcher_;
+//    ScanMatcher scan_matcher_;
 //    PoseGraphCustom pose_graph_;
 //    PoseGraphG2o pose_graph_;
-    PoseGraphCeres pose_graph_;
+//    PoseGraphCeres pose_graph_;
 
     int vertex_counter_;
     Eigen::Matrix3d info_matrix;

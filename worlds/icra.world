@@ -17,9 +17,10 @@ define frontcamera camera
 define rplidar ranger
 (
   sensor(
+    range [0.2 8.0]
     range_max 8.0
-    fov 360
-    samples 360
+    fov 270
+    samples 270
   )
   # generic model properties
   color "black"
@@ -28,7 +29,8 @@ define rplidar ranger
 
 define rmcar position
 (
-  size [0.62 0.45 0.250]
+  #size [0.62 0.45 0.250]
+  size [0.2 0.1 0.1]
   origin [0 0 0 0]
   gui_nose 1
   drive "omni"
@@ -84,3 +86,4 @@ floorplan
  rmcar(pose [ 1 1 0 0 ] name "rmcar0" color "blue" )
 # throw in a block for test
  block(pose [ 7.79 3.45 0 0.3 ] color "red"  )
+

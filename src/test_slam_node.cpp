@@ -31,6 +31,7 @@ TestSlam::TestSlam(tf::TransformListener *tf)
     map_publisher_ = nh_.advertise<nav_msgs::OccupancyGrid>(kMapTopic_, 1, true);
     mpa_pub_thread_ = new std::thread(&TestSlam::MapPublishLoop, this, 1);
     first_map_ = true;
+    map_update_index_ = -1;
     
 
     scan_pos_cal.setZero();
@@ -59,9 +60,11 @@ TestSlam::TestSlam(tf::TransformListener *tf)
     path_optimization_.header.frame_id=param_.global_frame_id;
 
     //进行里程计和激光雷达数据的同步
-    scan_filter_sub_ = new message_filters::Subscriber<sensor_msgs::LaserScan>(nh_, param_.laser_topic_name, 10);
-    scan_filter_ = new tf::MessageFilter<sensor_msgs::LaserScan>(*scan_filter_sub_, *tf_, param_.odom_frame_id, 10);
-    scan_filter_->registerCallback(boost::bind(&TestSlam::scanCallBack, this, _1));
+//    scan_filter_sub_ = new message_filters::Subscriber<sensor_msgs::LaserScan>(nh_, param_.laser_topic_name, 10);
+//    scan_filter_ = new tf::MessageFilter<sensor_msgs::LaserScan>(*scan_filter_sub_, *tf_, param_.odom_frame_id, 10);
+//    scan_filter_->registerCallback(boost::bind(&TestSlam::scanCallBack, this, _1));
+
+    scan_sub_ = nh_.subscribe(param_.laser_topic_name, 5, &TestSlam::scanCallBack, this);
 
     std::cout <<"Test_slam init,Wait for Data!!!!!!!"<<std::endl;
 }
@@ -150,30 +153,30 @@ void TestSlam::scanCallBack(const sensor_msgs::LaserScan::ConstPtr &laserScanMsg
 
     sensor_msgs::LaserScan scan = *laserScanMsg;
 
-    // laser_data_process_->ScanDataCalibrate(scan);
-
-    if(!getTfPose(param_.odom_frame_id, param_.base_frame_id, odom_base_pose, scan.header.stamp)){
-        d_odom = Eigen::Vector3d::Zero();
-    }
-    else{
-        d_odom = calcuDeltaOdom(odom_base_pose);
-        if(d_odom(0) < 0.02 &&
-           d_odom(1) < 0.02 &&
-           d_odom(2) < tfRadians(5.0))
-        {
-//            return ;
-//            d_odom = Eigen::Vector3d::Zero();
-        }
-        last_pos_ = now_pos_;
-        odom_increments_.push_back(d_odom);
-
-        c = cos(odom_pos_cal(2));
-        s = sin(odom_pos_cal(2));
-        odom_pos_cal(0) += c*d_odom(0) - s*d_odom(1);
-        odom_pos_cal(1) += s*d_odom(0) + c*d_odom(1);
-        odom_pos_cal(2) += d_odom(2);
-    }
-    pubPathMsg(odom_pos_cal, path_odom, odom_path_pub_);
+//     laser_data_process_->ScanDataCalibrate(scan);
+//
+//    if(!getTfPose(param_.odom_frame_id, param_.base_frame_id, odom_base_pose, scan.header.stamp)){
+//        d_odom = Eigen::Vector3d::Zero();
+//    }
+//    else{
+//        d_odom = calcuDeltaOdom(odom_base_pose);
+//        if(d_odom(0) < 0.02 &&
+//           d_odom(1) < 0.02 &&
+//           d_odom(2) < tfRadians(5.0))
+//        {
+////            return ;
+////            d_odom = Eigen::Vector3d::Zero();
+//        }
+//        last_pos_ = now_pos_;
+//        odom_increments_.push_back(d_odom);
+//
+//        c = cos(odom_pos_cal(2));
+//        s = sin(odom_pos_cal(2));
+//        odom_pos_cal(0) += c*d_odom(0) - s*d_odom(1);
+//        odom_pos_cal(1) += s*d_odom(0) + c*d_odom(1);
+//        odom_pos_cal(2) += d_odom(2);
+//    }
+//    pubPathMsg(odom_pos_cal, path_odom, odom_path_pub_);
 
 
 
@@ -231,7 +234,7 @@ void TestSlam::scanCallBack(const sensor_msgs::LaserScan::ConstPtr &laserScanMsg
     if(sensor_data_manager_->GetRangeFinder() == nullptr){
         std::unique_ptr<slam::LaserRangeFinder> range_finder = std::make_unique<slam::LaserRangeFinder>(scan.angle_min, scan.angle_max, scan.angle_increment,
                                                               scan.range_min, scan.range_max);
-        sensor_data_manager_->SetRangeFinder(std::move(range_finder));                                         
+        sensor_data_manager_->SetRangeFinder(std::move(range_finder));
     }
 
     size_t size = scan.ranges.size();
@@ -253,21 +256,22 @@ void TestSlam::scanCallBack(const sensor_msgs::LaserScan::ConstPtr &laserScanMsg
     }
 
     Eigen::Vector3d predict_sensor_pose = best_pose_;
-    predict_sensor_pose(0) += cos(odom_pos_cal(2))*d_odom(0) - sin(odom_pos_cal(2))*d_odom(1);
-    predict_sensor_pose(1) += sin(odom_pos_cal(2))*d_odom(0) + cos(odom_pos_cal(2))*d_odom(1);
-    predict_sensor_pose(2) += d_odom(2);
+//    predict_sensor_pose(0) += cos(odom_pos_cal(2))*d_odom(0) - sin(odom_pos_cal(2))*d_odom(1);
+//    predict_sensor_pose(1) += sin(odom_pos_cal(2))*d_odom(0) + cos(odom_pos_cal(2))*d_odom(1);
+//    predict_sensor_pose(2) += d_odom(2);
     range_data_container->set_sensor_pose(predict_sensor_pose);
 
     sensor_data_manager_->AddSensorData(range_data_container, slam::OdometryData(odom_base_pose));
 
 
-    slam_processer_->process();
+    slam_processer_->process(predict_sensor_pose);
 
-ros::WallDuration duration = ros::WallTime::now() - startTime;
-ROS_INFO("TestSLAM took: %f milliseconds", duration.toSec()*1000.0f );
+//ros::WallDuration duration = ros::WallTime::now() - startTime;
+//ROS_INFO("TestSLAM took: %f milliseconds", duration.toSec()*1000.0f );
 
-    best_pose_ = slam_processer_->GetCurrentSensorPose();
-    publishTf(scan.header.stamp);
+    best_pose_ = slam_processer_->current_sensor_pose();
+//    PublishTfMapToOdom(scan.header.stamp);
+    PublishTfMapToLaser(scan.header.stamp);
 
     // std::cout << "Data Cnt:" << dataCnt++ << std::endl;
 }
@@ -276,6 +280,7 @@ const bool kDisplayFullMap = true;
 void TestSlam::MapPublishLoop(float map_pub_period){
 
     ros::Rate r(1.0 / map_pub_period);
+    std::cout << "map pub period : " << map_pub_period << std::endl;
     while(ros::ok())
     {
 
@@ -297,8 +302,12 @@ void TestSlam::MapPublishLoop(float map_pub_period){
             first_map_ = false;
         }
 
+        std::cout << "map pub running !" << std::endl;
+
         std::shared_ptr<slam::Map> occu_grid_map = slam_processer_->GetPubMap();
-        if(occu_grid_map != nullptr){
+        if(occu_grid_map != nullptr && occu_grid_map->map_update_index() != map_update_index_){
+
+            map_update_index_ = occu_grid_map->map_update_index();
 
             double resolution = occu_grid_map->GetCellLength();
 
@@ -400,11 +409,13 @@ void TestSlam::MapPublishLoop(float map_pub_period){
 
         r.sleep();
     }
+
+    std::cout << "map pub thread end !" << std::endl;
 }
 
 
 
-void TestSlam::publishTf(ros::Time time_stamp)
+void TestSlam::PublishTfMapToOdom(ros::Time time_stamp)
 {
     tf::StampedTransform odom_to_laser;
 
@@ -425,4 +436,14 @@ void TestSlam::publishTf(ros::Time time_stamp)
     tfB_->sendTransform( tf::StampedTransform (map_to_odom, time_stamp, param_.global_frame_id, param_.odom_frame_id));
 }
 
+void TestSlam::PublishTfMapToLaser(ros::Time time_stamp)
+{
+    tf::Transform laser_to_map = tf::Transform(tf::createQuaternionFromRPY(0, 0, best_pose_[2]),
+                                               tf::Vector3(best_pose_[0], best_pose_[1], 0.0));
+
+
+    tfB_->sendTransform( tf::StampedTransform (laser_to_map, time_stamp, param_.global_frame_id, param_.laser_frame_id));
+
+//    std::cout << "pub laser_to_map tf !" << std::endl;
+}
 

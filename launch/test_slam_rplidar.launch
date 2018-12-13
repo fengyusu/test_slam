@@ -1,0 +1,26 @@
+    <launch>
+        <param name="use_sim_time" value="false"/>
+
+        <rosparam  command="load" file="$(find test_slam)/config/sys_param.yaml" />
+
+
+        <node name="test_slam_node" pkg="test_slam"  type="test_slam_node" output="screen" >
+            <remap from="scan" to="scan" />
+        </node>
+
+<!--
+
+                        <node pkg="stage_ros" type="stageros" name="stageros" args="$(find test_slam)/worlds/willow-pr2-5cm.world" respawn="false" >
+                            <remap from="base_scan" to="scan"/>
+                            <param name="base_watchdog_timeout" value="0.5" />
+                        </node>
+
+                        <node pkg="test_slam" type="robot_teleopt" name="robot_teleopt" output="screen" />
+
+
+                        <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+-->
+
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find test_slam)/config/rviz.rviz" />
+
+    </launch>

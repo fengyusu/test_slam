@@ -1,7 +1,7 @@
 
 odom_frame_id        : "odom"
 #base_laser_link
-laser_frame_id       : "base_laser_link"
+laser_frame_id       : "laser"
 base_frame_id        : "base_link"
 global_frame_id      : "map"
 

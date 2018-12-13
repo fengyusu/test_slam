@@ -214,9 +214,9 @@ void TeleoptNode::keyMouseLoop(void)
         }
 
         if(use_km_control_){
-            cmdvel_.linear.x = x_vel_;  
-            cmdvel_.linear.y = y_vel_; 
-            cmdvel_.angular.z = 0.7 * yaw_rate_;  
+            cmdvel_.linear.x = 2.0 * x_vel_;
+            cmdvel_.linear.y = 2.0 * y_vel_;
+            cmdvel_.angular.z = 1.2 * yaw_rate_;
             pub_.publish(cmdvel_);  
             yaw_rate_ = 0.0;
         }
